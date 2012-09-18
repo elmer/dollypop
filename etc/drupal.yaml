@@ -1,0 +1,7 @@
+node: lamp
+app: drupal
+site_name: drupal.labs.vizcayano.com
+database_host: localhost
+database_name: drupal1
+database_user: drupal1
+database_password: droopal

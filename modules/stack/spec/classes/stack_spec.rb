@@ -2,5 +2,5 @@ require "spec_helper"
 
 describe "stack" do
   it { should include_class('stdlib') }
-  it { should contain_service('sshd') }
+  it { should include_class('apt::unattended-upgrades') }
 end

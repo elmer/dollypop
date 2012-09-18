@@ -1,0 +1,8 @@
+node: database
+databases: test1,test2,test3
+database_test1_user: test1
+database_test1_password: test1
+database_test2_user: test2
+database_test2_password: test2
+database_test3_user: test3
+database_test3_password: test3

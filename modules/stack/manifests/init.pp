@@ -1,5 +1,8 @@
 class stack {
   include stdlib
-  service {'sshd': ensure => running }
+
+  class {"stack::setup": stage => setup }
+  ->
+  class {'apt::unattended-upgrades': stage => setup }
 
 }

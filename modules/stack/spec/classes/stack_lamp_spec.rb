@@ -1,7 +1,14 @@
 require "spec_helper"
 
 describe "stack::lamp" do
-
-  #it { should contain_service('sshd') }
+  context "on Ubuntu" do
+    let(:facts) do
+      {
+        :osfamily                => "Debian",
+        :operatingsystem         => "Ubuntu",
+      }
+    end
+    it { should include_class('apache') }
+  end
 
 end
