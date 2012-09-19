@@ -26,7 +26,6 @@ Vagrant::Config.run do |config|
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 
-
   # sample wordpress app
   config.vm.define :wordpress do |wp|
     wp.vm.host_name = "wp.labs.vizcayano.com"
@@ -36,6 +35,18 @@ Vagrant::Config.run do |config|
     wp.vm.provision :shell,
       :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/wp.yaml /etc/facter/facts.d/node.yaml'
     wp.vm.provision :puppet, 
+      :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
+  end
+
+  # sample redmine rails app
+  config.vm.define :redmine do |redmine|
+    redmine.vm.host_name = "redmine.labs.vizcayano.com"
+    redmine.vm.customize ["modifyvm", :id, "--memory", 1024]
+    redmine.vm.network :hostonly, "10.50.10.53", :netmask => "255.255.255.0"
+
+    redmine.vm.provision :shell,
+      :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/redmine.yaml /etc/facter/facts.d/node.yaml'
+    redmine.vm.provision :puppet,
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 end

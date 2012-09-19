@@ -1,5 +1,5 @@
 node: database
-databases: test1,test2,test3,drupal1,wpdb
+databases: test1,test2,test3,drupal1,wpdb,redmine
 database_test1_user: test1
 database_test1_password: test1
 database_test2_user: test2
@@ -11,3 +11,5 @@ database_drupal1_password: droopal
 database_drupal1_dump: drupal1
 database_wpdb_user: wordpress
 database_wpdb_password: secret
+database_redmine_user: redmine
+database_redmine_password: secret

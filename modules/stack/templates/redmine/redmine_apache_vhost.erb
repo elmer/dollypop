@@ -1,0 +1,29 @@
+NameVirtualHost *:80
+<VirtualHost *:80>
+  ServerName <%=site_name%>
+  ServerAlias <%=site_name%>
+  DocumentRoot <%=doc_root%>
+
+  <Directory "<%=doc_root%>">
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  <Proxy *>
+    Order allow,deny
+    Allow from all
+  </Proxy>
+
+  ErrorLog /var/log/apache2/<%=site_name%>_error.log
+  CustomLog /var/log/apache2/<%=site_name%>_access.log combined
+
+  LogLevel warn
+  ServerSignature Off
+
+  ProxyRequests Off
+
+  ProxyPass / http://localhost:3000/
+  ProxyPassReverse / http://localhost:3000/
+</VirtualHost>

@@ -11,8 +11,19 @@ case $::node {
         include stack::apps::wordpress
       }
       default: {
-        fail("Invalid app stack name")
+        fail("Invalid '${::spp}' app for '${::node}' stack")
       }
+    }
+  }
+  'rails': {
+    case $::app {
+      'redmine': {
+        include stack::apps::redmine
+      }
+      default: {
+        fail("Invalid '${::spp}' app for '${::node}' stack")
+      }
+
     }
   }
   default: {
