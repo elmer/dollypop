@@ -1,8 +1,8 @@
 class stack::apps::drupal_dependencies {
 
-  $packages = [ "php5-gd", "libssh2-php", "php5-pgsql" ]
+  $packages = [ "libssh2-php" ]
 
   package{$packages:
-    ensure => installed,
+    ensure  => installed,
   }
 }

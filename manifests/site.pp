@@ -10,9 +10,6 @@ case $::node {
       'wordpress': {
         include stack::apps::wordpress
       }
-      'jenkins': {
-        include stack::apps::jenkins
-      }
       default: {
         fail("Invalid app stack name")
       }

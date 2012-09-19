@@ -10,6 +10,9 @@ describe "stack::lamp" do
     end
     it { should include_class("apache") }
     it { should include_class('apache::mod::php') }
+
+    it { should contain_package("php5-gd") }
+    it { should contain_package("php5-pgsql") }
   end
 
 end
