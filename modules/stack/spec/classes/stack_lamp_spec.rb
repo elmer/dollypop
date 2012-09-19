@@ -8,6 +8,7 @@ describe "stack::lamp" do
         :operatingsystem         => "Ubuntu",
       }
     end
+    it { should include_class("stack") }
     it { should include_class("apache") }
     it { should include_class('apache::mod::php') }
 
