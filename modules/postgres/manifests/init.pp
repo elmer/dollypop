@@ -18,10 +18,26 @@ class postgres {
     ensure => installed
   }
 
+  file_line { 'postgresql.conf':
+    path    => "/etc/postgresql/9.1/main/postgresql.conf",
+    line    => "listen_addresses = '*'",
+    notify  => Service['postgresql'],
+    require => Package['postgresql'],
+  }
+
+  file_line { 'pg_hba.conf':
+    path    => "/etc/postgresql/9.1/main/pg_hba.conf",
+    line    => "host all all 0.0.0.0/0 md5",
+    notify  => Service['postgresql'],
+    require => Package['postgresql'],
+  }
+
   service { 'postgresql':
     ensure    => running,
     enable    => true,
     hasstatus => true,
-    subscribe => Package[postgresql]
+    subscribe => [ Package[postgresql], 
+      File_line['postgresql.conf'],
+      File_line['pg_hba.conf'] ],
   }
 }

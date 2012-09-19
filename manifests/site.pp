@@ -23,10 +23,5 @@ case $::node {
   }
 }
 
-notify{"databases":
-  message => "databases = $::databases",
-}
-
-
 node default {
 }

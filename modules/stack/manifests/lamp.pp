@@ -1,5 +1,4 @@
 class stack::lamp {
   include stack
-
-  class {'apache': stage => setup }
+  include apache, apache::mod::php
 }
