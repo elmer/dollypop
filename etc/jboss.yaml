@@ -1,0 +1,7 @@
+node: java
+app: jboss
+site_name: jboss.labs.vizcayano.com
+database_host: 10.50.10.50
+database_name: jbossdb
+database_user: jboss
+database_password: redhat

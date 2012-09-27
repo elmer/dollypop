@@ -1,5 +1,5 @@
 node: database
-databases: test1,test2,test3,drupal1,wpdb,redmine
+databases: test1,test2,test3,drupal1,wpdb,redmine,jforum
 database_test1_user: test1
 database_test1_password: test1
 database_test2_user: test2
@@ -13,3 +13,5 @@ database_wpdb_user: wordpress
 database_wpdb_password: secret
 database_redmine_user: redmine
 database_redmine_password: secret
+database_jforum_user: jforum
+database_jforum_password: tester123

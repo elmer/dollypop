@@ -3,7 +3,7 @@
 
 Vagrant::Config.run do |config|
   config.vm.box = "precise64"
-  config.vm.define :db do |db|
+  config.vm.define :database do |db|
     db.vm.host_name = "db.labs.vizcayano.com"
     db.vm.customize ["modifyvm", :id, "--memory", 1024]
     db.vm.network :hostonly, "10.50.10.50", :netmask => "255.255.255.0"
@@ -47,6 +47,18 @@ Vagrant::Config.run do |config|
     redmine.vm.provision :shell,
       :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/redmine.yaml /etc/facter/facts.d/node.yaml'
     redmine.vm.provision :puppet,
+      :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
+  end
+
+  # sample java on tomcat
+  config.vm.define :jforum_tomcat do |jboss|
+    jboss.vm.host_name = "jforum.labs.vizcayano.com"
+    jboss.vm.customize ["modifyvm", :id, "--memory", 1024]
+    jboss.vm.network :hostonly, "10.50.10.54", :netmask => "255.255.255.0"
+
+    jboss.vm.provision :shell,
+      :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/jforum_tomcat.yaml /etc/facter/facts.d/node.yaml'
+    jboss.vm.provision :puppet,
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 end

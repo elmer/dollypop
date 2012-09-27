@@ -1,0 +1,7 @@
+node: tomcat
+app: jforum
+site_name: jforum.labs.vizcayano.com
+database_host: 10.50.10.50
+database_name: jforum
+database_user: jforum
+database_password: tester123
