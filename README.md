@@ -14,7 +14,8 @@ Current list of working applications on specific stack.
 
 1. **Drupal on LAMP** - Install the Drupal Application, It needs the **DATABASE** stack for its database server.
 2. **Redmine on RAILS** - Install Redmine 2.1.0, also uses **DATABASE** as its external data source.
-3. _more_to_follow_
+3. **JForum on Tomcat** - Install JForum 2.1.9 on Tomcat 6 (preseed not implemented, need to visit http://ip:8080/install.jsp to setup)
+4. _more_to_follow_
 
 
 ### Usage
@@ -55,9 +56,14 @@ The prerequesites of all the installation procedure is the installation of __Pup
         root@vm:~# cd dollypop
         root@vm:~# puppet apply --modulepath modules manifests/site.pp
 
-#### Installing Drupal Application using _LAMP_ Stack
+#### Installing Drupal Application on _LAMP_ Stack
 
 Nothing here yet...
+
+#### Installing JForum Application on _Tomcat_ Stack
+
+Nothing here yet...
+
 
 ## Contributing
 
