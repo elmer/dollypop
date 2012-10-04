@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem 'vagrant'
-gem 'rspec-puppet'
+gem 'rspec-puppet', '= 0.1.5'
+gem 'puppetlabs_spec_helper'
 gem 'ci_reporter'
 
-gem 'puppet', '= 2.7.14'
+gem 'puppet', '= 2.7.19'
