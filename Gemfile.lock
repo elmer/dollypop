@@ -22,6 +22,7 @@ GEM
     net-ssh (2.2.2)
     puppet (2.7.19)
       facter (~> 1.5)
+    puppet-lint (0.3.2)
     puppetlabs_spec_helper (0.3.0)
       mocha (>= 0.10.5)
       rake
@@ -54,6 +55,7 @@ PLATFORMS
 DEPENDENCIES
   ci_reporter
   puppet (= 2.7.19)
+  puppet-lint
   puppetlabs_spec_helper
   rspec-puppet (= 0.1.5)
   vagrant

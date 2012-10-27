@@ -1,6 +1,7 @@
 require "rake"
 require "rspec/core/rake_task"
 require 'ci/reporter/rake/rspec'
+require "puppet-lint/tasks/puppet-lint"
 
 task :default do
   system("rake -T")
