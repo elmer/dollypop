@@ -1,21 +1,23 @@
-class stack::apps::drupal_install($doc_root) {
+# drupal install
+class stack::apps::drupal_install($doc_root='/var/www') {
 
-  $drupal = "drupal-7.15"
+  $drupal = 'drupal-7.15'
   $drupal_source = "${drupal}.tar.gz"
 
-  $www_user = "www-data"
-  $www_group = "www-data"
+  $www_user = 'www-data'
+  $www_group = 'www-data'
 
-  Exec { path => "/usr/bin:/bin:/usr/sbin:/sbin" }
+  Exec { path => '/usr/bin:/bin:/usr/sbin:/sbin' }
 
   exec {'drupal_source':
-    command => "wget -O /opt/${drupal_source} http://ftp.drupal.org/files/projects/${drupal_source}",
+    command => "wget -O /opt/${drupal_source} \
+      http://ftp.drupal.org/files/projects/${drupal_source}",
     creates => "/opt/${drupal_source}",
   }
 
   exec {'extract_source':
     command => "tar xzf /opt/${drupal_source}",
-    cwd     => "/opt",
+    cwd     => '/opt',
     creates => "/opt/${drupal}/index.php",
     require => Exec['drupal_source'],
   }
@@ -36,7 +38,7 @@ class stack::apps::drupal_install($doc_root) {
     ensure  => present,
     owner   => $www_user,
     group   => $www_user,
-    content => template("stack/drupal/settings.php.erb"),
+    content => template('stack/drupal/settings.php.erb'),
     require => Exec['move_to_docroot'],
   }
 

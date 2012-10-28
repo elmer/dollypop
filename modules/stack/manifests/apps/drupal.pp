@@ -1,10 +1,11 @@
+# drupal app
 class stack::apps::drupal {
 
   include stack::lamp
 
   $site_name = $::site_name
   $vhost_name = $::ipaddress
-  $doc_root = "/var/www/drupal"
+  $doc_root = '/var/www/drupal'
 
   apache::vhost {$site_name:
     priority           => '10',

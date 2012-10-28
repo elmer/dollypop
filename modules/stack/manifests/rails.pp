@@ -1,7 +1,8 @@
+# rails stack
 class stack::rails {
   include stack
 
-  class { "stack::ruby":
+  class { 'stack::ruby':
     stage => setup
   }
 }

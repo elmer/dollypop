@@ -1,3 +1,4 @@
+# jforum on tomcat installation
 class stack::apps::jforum_tomcat_install {
 
   tomcat::instance { 'jforum':
@@ -8,8 +9,8 @@ class stack::apps::jforum_tomcat_install {
 
   package {'unzip': ensure => installed }
 
-  $jforum = "jforum-2.1.9"
-  $jforum_home = "/srv/tomcat/jforum"
+  $jforum = 'jforum-2.1.9'
+  $jforum_home = '/srv/tomcat/jforum'
 
   exec { "jforum-zipfile-${jforum}":
     command => "/usr/bin/wget http://jforum.net/${jforum}.zip",

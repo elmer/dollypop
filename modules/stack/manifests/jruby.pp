@@ -1,3 +1,4 @@
+# jruby stack
 class stack::jruby {
   include stack
 

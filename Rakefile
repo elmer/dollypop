@@ -3,6 +3,9 @@ require "rspec/core/rake_task"
 require 'ci/reporter/rake/rspec'
 require "puppet-lint/tasks/puppet-lint"
 
+
+PuppetLint.configuration.ignore_paths = [ /modules\/((a|t|j|r|p|ss|std).*)\/*.pp/ ]
+
 task :default do
   system("rake -T")
 end

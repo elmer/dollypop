@@ -1,3 +1,4 @@
+# jforum on tomcat
 class stack::apps::jforum_tomcat {
 
   class { 'tomcat':

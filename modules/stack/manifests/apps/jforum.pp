@@ -1,4 +1,5 @@
-class stack::apps::jforum($appserver) {
+# jforum app
+class stack::apps::jforum($appserver=undef) {
   include stack
 
   class {'java':
@@ -12,17 +13,15 @@ class stack::apps::jforum($appserver) {
       class { 'stack::apps::jforum_tomcat':
         stage   => 'setup',
         }
-     }
-     'jboss': {
-       class { 'stack::apps::jforum_jboss':
-         stage   => 'setup',
-       }
-     }
-     default : {
-       fail("jforum cannot be installed on this appserver: '${appserver}'")
-     }
+    }
+    'jboss': {
+      class { 'stack::apps::jforum_jboss':
+        stage   => 'setup',
+      }
+    }
+    default : {
+      fail("jforum cannot be installed on this appserver: '${appserver}'")
+    }
   }
-
-
 
 }

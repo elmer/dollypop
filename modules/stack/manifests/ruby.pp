@@ -1,3 +1,4 @@
+# ruby stack
 class stack::ruby {
   include stack
 
