@@ -17,5 +17,5 @@ RSpec::Core::RakeTask.new(:test) do |t|
 end
 
 
-desc "Run CI Build"
-task :build => [ "ci:setup:rspec", :test]
+desc "Run CI Build (puppet-lint and puppet-rspec)"
+task :build => [ "ci:setup:rspec", 'lint', :test]
