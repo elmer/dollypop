@@ -2,7 +2,13 @@
 
 Puppet Manifest for Application Testing.
 
+## Tests
+
+[![Build
+Status](https://ci.morphlabs.com/job/dollypop/badge/icon)](https://ci.morphlabs.com/job/dollypop/)
+
 ## Stacks
+
 The following are the list of stacks currently implemented on this manifest.
 
 1. **DATABASE** - a PostgreSQL implemented database server
@@ -10,6 +16,7 @@ The following are the list of stacks currently implemented on this manifest.
 3. **RAILS** - Ruby On Rails
 
 ## Applications
+
 Current list of working applications on specific stack.
 
 1. **Drupal on LAMP** - Install the Drupal Application, It needs the **DATABASE** stack for its database server.
