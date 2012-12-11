@@ -1,7 +1,14 @@
 # jforum app
 class stack::apps::jforum(
   $appserver=undef
-) inherits stack::java {
+) {
+
+  class { 'java':
+    distribution => 'jdk',
+    version      => 'installed',
+    stage        => 'setup',
+  }
+
 
   case $appserver {
     'tomcat': {
