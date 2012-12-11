@@ -1,6 +1,7 @@
 # redmine app
-class stack::apps::redmine {
-  include stack::rails
+class stack::apps::redmine
+  inherits stack::rails {
+
   include apache # for proxy
   include apache::mod::proxy
   include apache::mod::proxy_http
@@ -41,7 +42,7 @@ class stack::apps::redmine {
     ruby_version => 'ruby-1.9.2',
   }
 
-  class {'stack::apps::redmine_install':
+  class {'stack::apps::redmine::install':
     path    => $redmine_home,
     owner   => $redmine_user,
     stage   => deploy,

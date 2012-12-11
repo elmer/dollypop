@@ -5,3 +5,4 @@ database_host: 10.50.10.50
 database_name: jforum
 database_user: jforum
 database_password: tester123
+http_proxy: 10.10.10.119:3128

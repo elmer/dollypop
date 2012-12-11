@@ -1,8 +1,5 @@
 # rails stack
-class stack::rails {
-  include stack
+class stack::rails
+  inherits stack::ruby {
 
-  class { 'stack::ruby':
-    stage => setup
-  }
 }

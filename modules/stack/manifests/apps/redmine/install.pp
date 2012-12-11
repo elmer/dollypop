@@ -1,5 +1,5 @@
 # redmine app instalation
-class stack::apps::redmine_install($path='/opt/redmine', $owner='redmine') {
+class stack::apps::redmine::install($path='/opt/redmine', $owner='redmine') {
 
   $redmine_file = 'redmine-2.1.0.tar.gz'
   $redmine_source =

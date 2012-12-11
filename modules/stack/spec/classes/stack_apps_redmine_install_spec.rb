@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "stack::apps::redmine_install" do
+describe "stack::apps::redmine::install" do
   context "on Ubuntu installing to /var/lib/redmine/redmine-2.1.0 as 'redmine' user" do
     let(:facts) do
       {

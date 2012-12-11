@@ -1,5 +1,5 @@
 # drupal install
-class stack::apps::drupal_install($doc_root='/var/www') {
+class stack::apps::drupal::install($doc_root='/var/www') {
 
   $drupal = 'drupal-7.15'
   $drupal_source = "${drupal}.tar.gz"

@@ -1,21 +1,16 @@
 # jforum app
-class stack::apps::jforum($appserver=undef) {
-  include stack
-
-  class {'java':
-    distribution => 'jdk',
-    version      => 'installed',
-    stage        => 'setup',
-  }
+class stack::apps::jforum(
+  $appserver=undef
+) inherits stack::java {
 
   case $appserver {
     'tomcat': {
-      class { 'stack::apps::jforum_tomcat':
+      class { 'stack::apps::jforum::tomcat':
         stage   => 'setup',
         }
     }
     'jboss': {
-      class { 'stack::apps::jforum_jboss':
+      class { 'stack::apps::jforum::jboss':
         stage   => 'setup',
       }
     }

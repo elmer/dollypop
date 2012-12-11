@@ -9,7 +9,7 @@ describe "stack::apps::drupal" do
       }
     end
     it { should include_class("stack::lamp") }
-    it { should include_class("stack::apps::drupal_dependencies") }
-    it { should include_class("stack::apps::drupal_install") }
+    it { should include_class("stack::apps::drupal::dependencies") }
+    it { should include_class("stack::apps::drupal::install") }
   end
 end

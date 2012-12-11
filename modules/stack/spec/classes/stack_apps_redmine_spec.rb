@@ -17,7 +17,7 @@ describe "stack::apps::redmine" do
     it { should contain_rvm__define__user("redmine") }
     it { should contain_rvm__define__gemset("redmine").with_ruby_version("ruby-1.9.2") }
 
-    it { should include_class("stack::apps::redmine_install") }
+    it { should include_class("stack::apps::redmine::install") }
 
 
   end

@@ -17,11 +17,11 @@ class stack::apps::drupal {
     require            => Package['httpd'],
   }
 
-  class {'stack::apps::drupal_dependencies':
+  class {'stack::apps::drupal::dependencies':
     stage => setup,
   }
 
-  class {'stack::apps::drupal_install':
+  class {'stack::apps::drupal::install':
     doc_root => $doc_root,
     stage    => deploy,
   }

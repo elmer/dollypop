@@ -51,14 +51,15 @@ Vagrant::Config.run do |config|
   end
 
   # sample java on tomcat
-  config.vm.define :jforum_tomcat do |jboss|
-    jboss.vm.host_name = "jforum.labs.vizcayano.com"
-    jboss.vm.customize ["modifyvm", :id, "--memory", 1024]
-    jboss.vm.network :hostonly, "10.50.10.54", :netmask => "255.255.255.0"
+  config.vm.define :jforum_tomcat do |tomcat|
+    tomcat.vm.host_name = "jforum.labs.vizcayano.com"
+    tomcat.vm.customize ["modifyvm", :id, "--memory", 1024]
+    tomcat.vm.network :hostonly, "10.50.10.54", :netmask => "255.255.255.0"
 
-    jboss.vm.provision :shell,
+    tomcat.vm.provision :shell,
       :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/jforum_tomcat.yaml /etc/facter/facts.d/node.yaml'
-    jboss.vm.provision :puppet,
+    tomcat.vm.provision :puppet,
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
+
 end

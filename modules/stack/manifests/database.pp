@@ -1,11 +1,8 @@
 # database stack
-class stack::database {
-  include stack
+class stack::database
+  inherits stack {
 
-  class {'postgres':
-    stage   => setup,
-    require => Exec['refresh_apt_cache'],
-  }
+  class {'postgres': stage => 'setup' }
 
   # create the databases
   $databases = split($::databases, ',')

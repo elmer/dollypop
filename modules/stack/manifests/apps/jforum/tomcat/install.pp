@@ -1,5 +1,5 @@
 # jforum on tomcat installation
-class stack::apps::jforum_tomcat_install {
+class stack::apps::jforum::tomcat::install {
 
   tomcat::instance { 'jforum':
     ensure      => 'present',

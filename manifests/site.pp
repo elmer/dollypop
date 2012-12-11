@@ -36,9 +36,6 @@ case $::node {
           appserver => 'tomcat',
         }
       }
-      'test': {
-        include stack::apps::tets
-      }
       default : {
         fail("Invalid '${::app}' for the '${::node}' stack")
       }
@@ -51,9 +48,6 @@ case $::node {
         class { 'stack::apps::jforum':
           appserver => 'jboss',
         }
-      }
-      'test': {
-        include stack::apps::tets
       }
       default : {
         fail("Invalid '${::app}' for the '${::node}' stack")

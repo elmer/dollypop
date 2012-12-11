@@ -2,8 +2,10 @@
 class stack {
   include stdlib
 
-  class {'stack::setup': stage => setup }
+  stage { 'prep': before => Stage['setup'] }
+
+  class {'stack::setup': stage => prep }
   ->
-  class {'apt::unattended-upgrades': stage => setup }
+  class {'apt::unattended-upgrades': stage => prep }
 
 }

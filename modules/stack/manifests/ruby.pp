@@ -1,6 +1,6 @@
 # ruby stack
-class stack::ruby {
-  include stack
+class stack::ruby
+  inherits stack {
 
   class { 'rvm': stage => setup, }
 
