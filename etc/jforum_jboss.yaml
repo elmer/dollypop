@@ -1,8 +1,8 @@
-node: tomcat
+node: jboss
 app: jforum
 site_name: jforum.labs.vizcayano.com
 database_host: 10.50.10.50
-database_name: jforum
-database_user: jforum
+database_name: jforum2
+database_user: jforum2
 database_password: tester123
 http_proxy: 10.10.10.104:3128

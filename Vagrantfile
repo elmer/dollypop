@@ -3,6 +3,8 @@
 
 Vagrant::Config.run do |config|
   config.vm.box = "precise64"
+
+  # database node
   config.vm.define :database do |db|
     db.vm.host_name = "db.labs.vizcayano.com"
     db.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -14,7 +16,7 @@ Vagrant::Config.run do |config|
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 
-  # sample drupal app
+  # sample php app: drupal
   config.vm.define :drupal do |drupal|
     drupal.vm.host_name = "drupal.labs.vizcayano.com"
     drupal.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -26,7 +28,7 @@ Vagrant::Config.run do |config|
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 
-  # sample wordpress app
+  # sample php app : wordpress
   config.vm.define :wordpress do |wp|
     wp.vm.host_name = "wp.labs.vizcayano.com"
     wp.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -38,7 +40,7 @@ Vagrant::Config.run do |config|
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 
-  # sample redmine rails app
+  # sample rails app :: redmine
   config.vm.define :redmine do |redmine|
     redmine.vm.host_name = "redmine.labs.vizcayano.com"
     redmine.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -50,7 +52,7 @@ Vagrant::Config.run do |config|
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 
-  # sample java on tomcat
+  # sample java :: jforum on tomcat
   config.vm.define :jforum_tomcat do |tomcat|
     tomcat.vm.host_name = "jforum.labs.vizcayano.com"
     tomcat.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -59,6 +61,18 @@ Vagrant::Config.run do |config|
     tomcat.vm.provision :shell,
       :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/jforum_tomcat.yaml /etc/facter/facts.d/node.yaml'
     tomcat.vm.provision :puppet,
+      :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
+  end
+
+  # sample java :: jforum on jboss
+  config.vm.define :jforum_jboss do |jfjb|
+    jfjb.vm.host_name = "jforumjb.labs.vizcayano.com"
+    jfjb.vm.customize ["modifyvm", :id, "--memory", 1024]
+    jfjb.vm.network :hostonly, "10.50.10.55", :netmask => "255.255.255.0"
+
+    jfjb.vm.provision :shell,
+      :inline => 'mkdir -p /etc/facter/facts.d; cp /vagrant/etc/jforum_jboss.yaml /etc/facter/facts.d/node.yaml'
+    jfjb.vm.provision :puppet,
       :module_path => 'modules', :manifest_file => "site.pp", :options => [ "--debug" ]
   end
 

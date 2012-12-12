@@ -2,6 +2,7 @@
 class stack::apps::jforum(
   $appserver=undef
 ) {
+  include stack
 
   class { 'java':
     distribution => 'jdk',
@@ -9,12 +10,15 @@ class stack::apps::jforum(
     stage        => 'setup',
   }
 
-
   case $appserver {
     'tomcat': {
-      class { 'stack::apps::jforum::tomcat':
+      class { 'tomcat':
         stage   => 'setup',
-        }
+        require => Class['java'],
+      }
+      class { 'stack::apps::jforum::tomcat::install':
+        stage => 'setup_infra',
+      }
     }
     'jboss': {
       class { 'stack::apps::jforum::jboss':
